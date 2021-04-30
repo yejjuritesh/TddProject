@@ -1,7 +1,13 @@
 package com.project;
 
 public class StringCalculator {
-    public int add() {
-        return 0;
+
+    public StringCalculator() {}
+
+    public int add(String input) {
+        if(input.equals(""))
+            return 0;
+        return Integer.parseInt(input);
     }
+
 }

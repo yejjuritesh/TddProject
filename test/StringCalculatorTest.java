@@ -8,7 +8,13 @@ public class StringCalculatorTest{
     @Test
     public void AddEmptyString(){
         StringCalculator calculator = new StringCalculator();
-        assertEquals(0,calculator.add(),0);
+        assertEquals(0,calculator.add(""),0);
+    }
+
+    @Test
+    public void AddOneInputString(){
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(1,calculator.add("1"),0);
     }
 
 
