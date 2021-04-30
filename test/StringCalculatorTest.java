@@ -17,5 +17,11 @@ public class StringCalculatorTest{
         assertEquals(1,calculator.add("1"),0);
     }
 
+    @Test
+    public void AddTwoInputsString(){
+        StringCalculator calculator = new StringCalculator();
+        assertEquals(3,calculator.add("1,2"),0);
+    }
+
 
 }
