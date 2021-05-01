@@ -22,11 +22,22 @@ public class StringCalculator {
             String delimiter=";";
 
             if(input.startsWith("//")){
-                delimiter = input.substring(2,3);
-                input = input.substring(2,input.length());
+                if(input.charAt(2)!='['){
+                    delimiter = input.substring(2, 3);
+                    input = input.substring(2, input.length());
+                }else{
+                    int j=2;
+                    delimiter="";
+                    while(input.charAt(j)!='\\'){
+                        delimiter += input.substring(j, j+1);
+                        j++;
+                    }
+                    input = input.substring(j+2);
+                }
             }
 
-            String regex = ",|\n|"+delimiter;
+            String regex = ",|\n|\\n|"+delimiter;
+
 
             String[] inputNumbers = input.split(regex);
 
@@ -37,8 +48,15 @@ public class StringCalculator {
                 String negatives = "Contains negative numbers: ";
 
                 if (inputNumbers[i].matches("\\d*")) {
-                    sum += Integer.parseInt(inputNumbers[i]);
-                } else {
+
+                    try {
+                        int number = Integer.parseInt(inputNumbers[i]);
+                        if (number <= 1000) {
+                            sum += Integer.parseInt(inputNumbers[i]);
+                        }
+                    }catch(Exception e){ System.out.print(inputNumbers[i]);}
+
+                } else if(inputNumbers[i].matches("^-\\d+$")){
                     negatives += inputNumbers[i] + " ";
                 }
 

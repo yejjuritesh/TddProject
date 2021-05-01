@@ -42,5 +42,15 @@ public class StringCalculatorTest{
         assertEquals("Contains negative numbers: -3",calculator.add("//;1,2\n-3\n4;5"),0);
     }
 
+    @Test
+    public void AddGreaterThan1000InputsString() throws Exception {
+        assertEquals(2,calculator.add("10001,2"),0);
+    }
+
+    @Test
+    public void AddAnyLengthDelimiterInputsString() throws Exception {
+        assertEquals(6,calculator.add("//[%%%]\\n1%%%2%%%3"),0);
+    }
+
 
 }
