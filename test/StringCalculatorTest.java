@@ -32,5 +32,10 @@ public class StringCalculatorTest{
         assertEquals(15,calculator.add("1,2\n3\n4,5"),0);
     }
 
+    @Test
+    public void AddCustomDelimiterInputsString(){
+        assertEquals(15,calculator.add("//;1,2\n3\n4;5"),0);
+    }
+
 
 }

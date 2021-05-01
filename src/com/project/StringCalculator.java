@@ -19,7 +19,16 @@ public class StringCalculator {
 
         }else if(InputValidator(input)){
 
-            String[] inputNumbers = input.split(",|\n");
+            String delimiter=";";
+
+            if(input.startsWith("//")){
+                delimiter = input.substring(2,3);
+                input = input.substring(2,input.length());
+            }
+
+            String regex = ",|\n|"+delimiter;
+
+            String[] inputNumbers = input.split(regex);
 
             int sum=0;
 
