@@ -27,5 +27,10 @@ public class StringCalculatorTest{
         assertEquals(15,calculator.add("1,2,3,4,5"),0);
     }
 
+    @Test
+    public void AddNewLineInputsString(){
+        assertEquals(15,calculator.add("1,2\n3\n4,5"),0);
+    }
+
 
 }
