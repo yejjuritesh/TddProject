@@ -30,8 +30,12 @@ public class StringCalculator {
                     delimiter="";
                     while(input.charAt(j)!='\\'){
                         delimiter += input.substring(j, j+1);
+                        if(input.charAt(j)==']'){
+                            delimiter += "|";
+                        }
                         j++;
                     }
+                    System.out.print(delimiter);
                     input = input.substring(j+2);
                 }
             }
