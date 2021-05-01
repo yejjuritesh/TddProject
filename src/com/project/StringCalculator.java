@@ -11,11 +11,13 @@ public class StringCalculator {
             return Integer.parseInt(input);
         }else{
             String[] inputNumbers = input.split(",");
-            if(inputNumbers[1].matches("-?\\d+") && inputNumbers[0].matches("-?\\d+")) {
-                return Integer.parseInt(inputNumbers[1]) + Integer.parseInt(inputNumbers[0]);
+            int sum=0;
+            for(int i=0;i< inputNumbers.length;i++) {
+                if (inputNumbers[i].matches("-?\\d+")) {
+                    sum += Integer.parseInt(inputNumbers[i]);
+                }
             }
+            return sum;
         }
-        return -1;
     }
-
 }
