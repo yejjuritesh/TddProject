@@ -7,7 +7,7 @@ public class StringCalculator {
 
     public StringCalculator() {}
 
-    public int add(String input) {
+    public int add(String input) throws Exception {
 
         if(input.equals("")) {
 
@@ -34,11 +34,16 @@ public class StringCalculator {
 
             for(int i=0;i< inputNumbers.length;i++) {
 
-                if (inputNumbers[i].matches("-?\\d+")) {
+                String negatives = "Contains negative numbers: ";
 
+                if (inputNumbers[i].matches("\\d*")) {
                     sum += Integer.parseInt(inputNumbers[i]);
-
+                } else {
+                    negatives += inputNumbers[i] + " ";
                 }
+
+                if (!negatives.equals("Contains negative numbers: ")) throw new Exception(negatives);
+
             }
             return sum;
         }
